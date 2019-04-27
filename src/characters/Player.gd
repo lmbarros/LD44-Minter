@@ -27,6 +27,6 @@ func _process(delta):
 		velocity = velocity.normalized() * SPEED
 		
 	if velocity.length_squared() > 0:
-		rotation = velocity.angle() + PI/2
+		rotation = velocity.angle()
 
 	move_and_slide(velocity)
