@@ -9,9 +9,12 @@ License is GPL3.
 ## Credits
 
 * Engine: [Godot](http://godotengine.org) 3.1.1.
+* Graphics: [Krita](https://krita.org).
 
 ## Notes to self
 
 ### Screen
 
 * Game window: 1280 x 720
+* UI: Right-aligned, 280 x 720
+* Mint: Left-aligned, 1000 x 720

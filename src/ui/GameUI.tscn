@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="GameUI" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 1000.0
+margin_right = 1280.0
+margin_bottom = 720.0
