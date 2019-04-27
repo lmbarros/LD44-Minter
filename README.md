@@ -17,6 +17,7 @@ License is GPL3.
 ### Dictionary
 
 * Mintage: Anything from raw metal to a ready coin.
+* Planchet: The plain metal disc that will become a coin after pressing.
 
 ### Screen
 

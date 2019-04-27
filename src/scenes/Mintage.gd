@@ -1,46 +1,63 @@
 extends Node2D
 
-enum State { RAW_METAL, MOLTEN_METAL, WET_PLANCHET, PLANCHET, COIN }
-
-const WORK_FOR_NEXT_STATE := 1.0
-
-var state: int = State.RAW_METAL
+var state: int = Globals.MintageState.RAW_METAL
 
 # How much this must be worked to get to the next state
-var workForNextState: float = WORK_FOR_NEXT_STATE
+var workForNextState: float = Globals.WORK_FOR_NEXT_STATE
 
 # Do a given amount of work on this "coinage thing" so that it eventually gets
 # to its next state.
 func work(amount: float) -> void:
 	# Alrady a coin, there is no next state
-	if state == State.COIN:
+	if state == Globals.MintageState.COIN:
 		return
 
 	workForNextState -= amount
 	if workForNextState >= 0:
 		match state:
-			State.RAW_METAL:
+			Globals.MintageState.RAW_METAL:
 				turnIntoMoltenMetal()
-			State.MOLTEN_METAL:
+			Globals.MintageState.MOLTEN_METAL:
 				turnIntoWetPlanchet()
-			State.WET_PLANCHET:
+			Globals.MintageState.WET_PLANCHET:
 				turnIntoPlanchet()
-			State.PLANCHET:
+			Globals.MintageState.PLANCHET:
 				turnIntoCoin()
 
 
 func turnIntoMoltenMetal() -> void:
-	workForNextState = WORK_FOR_NEXT_STATE
-	$Sprite.texture = "res://gfx/molten-metal.png"
+	state = Globals.MintageState.MOLTEN_METAL
+	workForNextState = Globals.WORK_FOR_NEXT_STATE
+	updateSprite()
+
 	
 func turnIntoWetPlanchet() -> void:
-	workForNextState = WORK_FOR_NEXT_STATE
-	$Sprite.texture = "res://gfx/wet-planchet.png"
+	state = Globals.MintageState.WET_PLANCHET
+	workForNextState = Globals.WORK_FOR_NEXT_STATE
+	updateSprite()
+
 
 func turnIntoPlanchet() -> void:
-	workForNextState = WORK_FOR_NEXT_STATE
-	$Sprite.texture = "res://gfx/planchet.png"
+	state = Globals.MintageState.PLANCHET
+	workForNextState = Globals.WORK_FOR_NEXT_STATE
+	updateSprite()
+
 
 func turnIntoCoin() -> void:
-	workForNextState = WORK_FOR_NEXT_STATE
-	$Sprite.texture = "res://gfx/coin.png"
+	state = Globals.MintageState.COIN
+	workForNextState = Globals.WORK_FOR_NEXT_STATE
+	updateSprite()
+
+
+func updateSprite():
+	match state:
+		Globals.MintageState.RAW_METAL:
+			$Sprite.texture = load("res://gfx/raw-metal.png")
+		Globals.MintageState.MOLTEN_METAL:
+			$Sprite.texture = load("res://gfx/molten-metal.png")
+		Globals.MintageState.WET_PLANCHET:
+			$Sprite.texture = load("res://gfx/wet-planchet.png")
+		Globals.MintageState.PLANCHET:
+			$Sprite.texture = load("res://gfx/planchet.png")
+		Globals.MintageState.COIN:
+			$Sprite.texture = load("res://gfx/coin.png")
