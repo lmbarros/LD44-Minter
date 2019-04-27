@@ -1,4 +1,5 @@
 extends Node2D
+class_name Mintage
 
 var state: int = Globals.MintageState.RAW_METAL
 
@@ -6,45 +7,27 @@ var state: int = Globals.MintageState.RAW_METAL
 var workForNextState: float = Globals.WORK_FOR_NEXT_STATE
 
 # Do a given amount of work on this "coinage thing" so that it eventually gets
-# to its next state.
-func work(amount: float) -> void:
-	# Alrady a coin, there is no next state
+# to its next state. Returns a Boolean indicating if the mintage changed its
+# state.
+func work(amount: float) -> bool:
+	# Already a coin, there is no next state
 	if state == Globals.MintageState.COIN:
-		return
+		return false
 
 	workForNextState -= amount
-	if workForNextState >= 0:
-		match state:
-			Globals.MintageState.RAW_METAL:
-				turnIntoMoltenMetal()
-			Globals.MintageState.MOLTEN_METAL:
-				turnIntoWetPlanchet()
-			Globals.MintageState.WET_PLANCHET:
-				turnIntoPlanchet()
-			Globals.MintageState.PLANCHET:
-				turnIntoCoin()
+	if workForNextState <= 0:
+		turnIntoNextState()
+		return true
+
+	return false
 
 
-func turnIntoMoltenMetal() -> void:
-	state = Globals.MintageState.MOLTEN_METAL
-	workForNextState = Globals.WORK_FOR_NEXT_STATE
-	updateSprite()
-
-	
-func turnIntoWetPlanchet() -> void:
-	state = Globals.MintageState.WET_PLANCHET
-	workForNextState = Globals.WORK_FOR_NEXT_STATE
-	updateSprite()
-
-
-func turnIntoPlanchet() -> void:
-	state = Globals.MintageState.PLANCHET
-	workForNextState = Globals.WORK_FOR_NEXT_STATE
-	updateSprite()
-
-
-func turnIntoCoin() -> void:
-	state = Globals.MintageState.COIN
+func turnIntoNextState() -> void:
+	var newState := state + 1
+	if state >= 1:
+		Globals.gameState.stocks[state] -= 1
+	Globals.gameState.stocks[newState] += 1
+	state = newState
 	workForNextState = Globals.WORK_FOR_NEXT_STATE
 	updateSprite()
 
@@ -61,3 +44,10 @@ func updateSprite():
 			$Sprite.texture = load("res://gfx/planchet.png")
 		Globals.MintageState.COIN:
 			$Sprite.texture = load("res://gfx/coin.png")
+
+
+func moveTo(target: Vector2) -> void:
+	var tweenDuration := 1.0
+	$MoveTween.interpolate_property(self, "position", position, target, tweenDuration,
+		Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	$MoveTween.start()

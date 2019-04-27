@@ -19,11 +19,11 @@ func initGameState() -> void:
 	gameState = GameState.new()
 
 
-func makeMintage(state: int, pos: Vector2) -> Node:
+func makeMintage(state: int, pos: Vector2, wfns: float = WORK_FOR_NEXT_STATE) -> Node:
 	var m := MintageScene.instance()
 	m.state = state
 	Globals.gameState.stocks[state] += 1
 	m.updateSprite()
-	m.workForNextState = WORK_FOR_NEXT_STATE
+	m.workForNextState = wfns
 	m.position = pos
 	return m
