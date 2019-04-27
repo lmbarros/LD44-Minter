@@ -84,4 +84,41 @@ func getPositionForNextState(m: Mintage) -> Vector2:
 
 func getInitialWorkForNextState() -> float:
 	return rand_range(
-		Globals.WORK_FOR_NEXT_STATE / 10.0, Globals.WORK_FOR_NEXT_STATE)
+		Globals.WORK_FOR_NEXT_STATE / 5.0, Globals.WORK_FOR_NEXT_STATE)
+
+
+func _on_InTimer_timeout():
+	var m := Globals.makeMintage(Globals.MintageState.RAW_METAL, $InPosition.position)
+	var s := m.find_node("Sprite") as Sprite
+	s.modulate = Color(1.0, 1.0, 1.0, 0.0)
+	
+	var tweenDuration := 0.8
+	var t := m.find_node("MoveTween") as Tween
+	t.interpolate_property(s, "modulate", s.modulate, Color(1.0, 1.0, 1.0, 1.0),
+		tweenDuration, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+	$Mintage.add_child(m)
+	m.moveTo(getPositionForNextState(m))
+
+
+func _on_OutTimer_timeout():
+	var mintage := $Mintage.get_children()
+	for m in mintage:
+		if m.state == Globals.MintageState.COIN:
+			# Remove from $Coinage; it is considered removed already
+			m.get_parent().remove_child(m)
+			add_child(m)
+			Globals.gameState.stocks[Globals.MintageState.COIN] -= 1
+
+			# Show it going away
+			var tweenDuration := 2.0
+			var t := m.find_node("MoveTween") as Tween
+			var s := m.find_node("Sprite") as Sprite
+			t.interpolate_property(s, "modulate", s.modulate,
+				Color(1.0, 1.0, 1.0, 0.0), tweenDuration, Tween.TRANS_QUAD,
+				Tween.EASE_IN_OUT)
+			m.moveTo($OutPosition.position)
+
+			# Give the coin some time and remove it for once
+			yield(get_tree().create_timer(3.0), "timeout")
+			m.queue_free()
+			break

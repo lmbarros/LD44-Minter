@@ -6,6 +6,18 @@
 [node name="Mint" type="Node2D"]
 script = ExtResource( 1 )
 
+[node name="InTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="InPosition" type="Position2D" parent="."]
+position = Vector2( 380, 181 )
+
+[node name="OutTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="OutPosition" type="Position2D" parent="."]
+position = Vector2( 616, 180 )
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 0 )
 tile_set = ExtResource( 2 )
@@ -49,3 +61,5 @@ margin_bottom = 140.0
 color = Color( 1, 1, 1, 0.364706 )
 
 [node name="Mintage" type="Node2D" parent="."]
+[connection signal="timeout" from="InTimer" to="." method="_on_InTimer_timeout"]
+[connection signal="timeout" from="OutTimer" to="." method="_on_OutTimer_timeout"]

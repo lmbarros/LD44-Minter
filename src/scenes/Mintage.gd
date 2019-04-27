@@ -24,8 +24,7 @@ func work(amount: float) -> bool:
 
 func turnIntoNextState() -> void:
 	var newState := state + 1
-	if state >= 1:
-		Globals.gameState.stocks[state] -= 1
+	Globals.gameState.stocks[state] -= 1
 	Globals.gameState.stocks[newState] += 1
 	state = newState
 	workForNextState = Globals.WORK_FOR_NEXT_STATE
