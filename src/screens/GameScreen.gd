@@ -4,19 +4,11 @@ const INITIAL_RESOURCE_COUNT := 10
 
 func _ready():
 	Globals.initGameState()
-	addRawMetalToInStock(INITIAL_RESOURCE_COUNT)
 	addRawMetalToFurnace(INITIAL_RESOURCE_COUNT)
 	addMoltenMetalToMolding(INITIAL_RESOURCE_COUNT)
 	addWetPlanchetToDrying(INITIAL_RESOURCE_COUNT)
 	addPlanchetToPress(INITIAL_RESOURCE_COUNT)
 	addCoinToOut(INITIAL_RESOURCE_COUNT)
-
-
-func addRawMetalToInStock(count: int) -> void:
-	for i in range(count):
-		var m := Globals.makeMintage(Globals.MintageState.RAW_METAL,
-			randomPointInside($Mint/InDepot))
-		$Mintage.add_child(m)
 
 
 func addRawMetalToFurnace(count: int) -> void:
