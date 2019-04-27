@@ -8,7 +8,7 @@ License is GPL3.
 
 ## Credits
 
-* Engine: [Godot](http://godotengine.org) 3.1.0.
+* Engine: [Godot](http://godotengine.org) 3.1.1.
 
 ## Notes to self
 
