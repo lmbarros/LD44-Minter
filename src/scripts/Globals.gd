@@ -22,7 +22,7 @@ func initGameState() -> void:
 func makeMintage(state: int, pos: Vector2) -> Node:
 	var m := MintageScene.instance()
 	m.state = state
-	gameState.stocks[state] += 1
+	Globals.gameState.stocks[state] += 1
 	m.updateSprite()
 	m.workForNextState = WORK_FOR_NEXT_STATE
 	m.position = pos
