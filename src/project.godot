@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "GameState",
+"language": "GDScript",
+"path": "res://scripts/GameState.gd"
+} ]
 _global_script_class_icons={
-
+"GameState": ""
 }
 
 [application]
@@ -19,6 +24,10 @@ config/name="LD44: Minter"
 run/main_scene="res://screens/GameScreen.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://scripts/Globals.gd"
 
 [display]
 

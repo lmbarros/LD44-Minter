@@ -10,8 +10,13 @@ License is GPL3.
 
 * Engine: [Godot](http://godotengine.org) 3.1.1.
 * Graphics: [Krita](https://krita.org).
+* Font: [Lato](http://www.latofonts.com), by Łukasz Dziedzic.
 
 ## Notes to self
+
+### Dictionary
+
+* Mintage: Anything from raw metal to a ready coin.
 
 ### Screen
 
