@@ -23,7 +23,7 @@ func _ready() -> void:
 func addRawMetalToFurnace(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.RAW_METAL,
-			randomPointInside($FurnaceDepot),
+			randomPointInside($FurnaceRoom/Depot),
 			getInitialWorkForNextState())
 		$Mintage.add_child(m)
 
@@ -31,7 +31,7 @@ func addRawMetalToFurnace(count: int) -> void:
 func addMoltenMetalToMolding(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.MOLTEN_METAL,
-			randomPointInside($MoldingDepot),
+			randomPointInside($MoldingRoom/Depot),
 			getInitialWorkForNextState())
 		$Mintage.add_child(m)
 
@@ -39,7 +39,7 @@ func addMoltenMetalToMolding(count: int) -> void:
 func addWetPlanchetToDrying(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.WET_PLANCHET,
-			randomPointInside($DryingDepot),
+			randomPointInside($DryingRoom/Depot),
 			getInitialWorkForNextState())
 		$Mintage.add_child(m)
 
@@ -47,7 +47,7 @@ func addWetPlanchetToDrying(count: int) -> void:
 func addPlanchetToPress(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.PLANCHET,
-			randomPointInside($PressDepot),
+			randomPointInside($PressRoom/Depot),
 			getInitialWorkForNextState())
 		$Mintage.add_child(m)
 
@@ -55,7 +55,7 @@ func addPlanchetToPress(count: int) -> void:
 func addCoinToOut(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.COIN,
-			randomPointInside($OutDepot),
+			randomPointInside($SafeRoom/Depot),
 			getInitialWorkForNextState())
 		$Mintage.add_child(m)
 
@@ -71,15 +71,15 @@ func randomPointInside(cr: ColorRect) -> Vector2:
 func getPositionForNextState(m: Mintage) -> Vector2:
 	match m.state:
 		Globals.MintageState.RAW_METAL:
-			return randomPointInside($FurnaceDepot)
+			return randomPointInside($FurnaceRoom/Depot)
 		Globals.MintageState.MOLTEN_METAL:
-			return randomPointInside($MoldingDepot)
+			return randomPointInside($MoldingRoom/Depot)
 		Globals.MintageState.WET_PLANCHET:
-			return randomPointInside($DryingDepot)
+			return randomPointInside($DryingRoom/Depot)
 		Globals.MintageState.PLANCHET:
-			return randomPointInside($PressDepot)
+			return randomPointInside($PressRoom/Depot)
 		Globals.MintageState.COIN:
-			return randomPointInside($OutDepot)
+			return randomPointInside($SafeRoom/Depot)
 
 
 func getInitialWorkForNextState() -> float:
@@ -88,7 +88,7 @@ func getInitialWorkForNextState() -> float:
 
 
 func _on_InTimer_timeout():
-	var m := Globals.makeMintage(Globals.MintageState.RAW_METAL, $InPosition.position)
+	var m := Globals.makeMintage(Globals.MintageState.RAW_METAL, $Courtyard/InPosition.position)
 	var s := m.find_node("Sprite") as Sprite
 	s.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	
@@ -116,7 +116,7 @@ func _on_OutTimer_timeout():
 			t.interpolate_property(s, "modulate", s.modulate,
 				Color(1.0, 1.0, 1.0, 0.0), tweenDuration, Tween.TRANS_QUAD,
 				Tween.EASE_IN_OUT)
-			m.moveTo($OutPosition.position)
+			m.moveTo($Courtyard/OutPosition.position)
 
 			# Give the coin some time and remove it for once
 			yield(get_tree().create_timer(3.0), "timeout")
