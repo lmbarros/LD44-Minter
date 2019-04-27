@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://scripts/GameState.gd"
 }, {
 "base": "Node2D",
+"class": "Machine",
+"language": "GDScript",
+"path": "res://scenes/Machine.gd"
+}, {
+"base": "Node2D",
 "class": "Mintage",
 "language": "GDScript",
 "path": "res://scenes/Mintage.gd"
 } ]
 _global_script_class_icons={
 "GameState": "",
+"Machine": "",
 "Mintage": ""
 }
 

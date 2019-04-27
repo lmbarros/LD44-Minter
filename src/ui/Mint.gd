@@ -1,18 +1,31 @@
 extends Node2D
 
 const INITIAL_RESOURCE_COUNT := 10
+
+# Work done per second when the machine is in full condition (AKA mint condition, har! har! har!)
 const WORK_PER_SEC := 0.3
 
 func _process(delta: float) -> void:
 	var mintage := $Mintage.get_children()
 
 	for m in mintage:
-		var changed: bool = m.work(delta * WORK_PER_SEC)
+		var machine := Globals.gameState.machines[m.state] as Machine
+		var machineCondition = 1.0 if machine == null else machine.condition
+		var changed: bool = m.work(delta * WORK_PER_SEC * machineCondition)
 		if changed:
 			m.moveTo(getPositionForNextState(m))
 
 
 func _ready() -> void:
+	# Initialize the machines on the global game state
+	Globals.gameState.machines.clear()
+	Globals.gameState.machines.append($FurnaceRoom/Furnace)
+	Globals.gameState.machines.append($MoldingRoom/MoldingMachine)
+	Globals.gameState.machines.append($DryingRoom/DryingMachine)
+	Globals.gameState.machines.append($PressRoom/Press)
+	Globals.gameState.machines.append(null) # dummy for coins
+
+	# Add some stock
 	addRawMetalToFurnace(INITIAL_RESOURCE_COUNT)
 	addMoltenMetalToMolding(INITIAL_RESOURCE_COUNT)
 	addWetPlanchetToDrying(INITIAL_RESOURCE_COUNT)
