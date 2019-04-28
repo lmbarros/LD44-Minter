@@ -5,7 +5,7 @@ onready var MintageScene := preload("res://scenes/Mintage.tscn")
 enum MintageState { RAW_METAL, MOLTEN_METAL, WET_PLANCHET, PLANCHET, COIN }
 
 # Amount of work required to make a mintage change to its next state.
-const WORK_FOR_NEXT_STATE := 0.5
+const WORK_FOR_NEXT_STATE := 0.75
 
 # Machine condition will decay this amount per second
 const MACHINE_DECAY_RATE := 1.0 / 120
