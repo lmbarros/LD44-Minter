@@ -9,6 +9,7 @@ var _isPlayerHere := false
 func _process(delta):
 	if _isPlayerHere and Input.is_action_just_pressed("action"):
 		if _tool:
+			_tool.isTaking = true
 			Globals.player.setTool(_tool)
 
 

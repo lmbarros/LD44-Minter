@@ -7,12 +7,18 @@ var chanceToBreak := 0.0
 
 var _coolDownTimer := 0.0
 
+# True if player is taking it; hack to avoid using it when taking it
+var isTaking := false
+
 
 func _process(delta: float) -> void:
 	_coolDownTimer -= delta
 
 
 func use() -> void:
+	if isTaking:
+		return
+
 	if get_parent() and canUse():
 		_coolDownTimer = coolDownInSecs
 		$AnimationPlayer.play("use")

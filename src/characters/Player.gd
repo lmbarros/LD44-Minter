@@ -49,6 +49,13 @@ func setTool(newTool: Tool) -> void:
 		$ToolSlot.remove_child(currTool)
 
 	$ToolSlot.add_child(newTool)
+	call_deferred("noLongerTakingTool")
+
+
+func noLongerTakingTool() -> void:
+	var currTool := getTool()
+	if currTool:
+		currTool.isTaking = false
 
 
 func getTool() -> Node:
