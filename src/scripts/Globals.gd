@@ -79,10 +79,27 @@ func getCurrentCoinRateModifier() -> int:
 func generateRandomEventMaybe(deltaInSecs: float) -> void:
 	gameState.secsOfGame += deltaInSecs
 	gameState.secsWithoutRandomEvents += deltaInSecs
+	
+	var interval := 0.0
 
-	if gameState.secsWithoutRandomEvents > 20.0:
+	if gameState.secsOfGame > 720:
+		interval = 5
+	elif gameState.secsOfGame > 360:
+		interval = 10
+	elif gameState.secsOfGame > 180:
+		interval = 15
+	elif gameState.secsOfGame > 90:
+		interval = 20
+	elif gameState.secsOfGame > 60:
+		interval = 25
+	else:
+		interval = 30
+		
+	var prob := 0.1 + (gameState.secsWithoutRandomEvents / 60.0)
+		
+	if gameState.secsWithoutRandomEvents > interval:
 		var r := randf()
-		if r < 0.1:
+		if r < prob:
 			# Time to generate a random event!
 			gameState.secsWithoutRandomEvents = 0.0
 			r = randf()
