@@ -22,6 +22,10 @@ var coinsPerSec := 0
 var coinRateModifiers: Array = [ ]
 
 
+var secsOfGame := 0.0
+var secsWithoutRandomEvents := 0.0
+
+
 func _init():
 	for _i in range(Globals.COIN_RATE_STATS_SIZE):
 		coinsPerSecStats.push_back(

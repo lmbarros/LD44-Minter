@@ -4,6 +4,7 @@ class_name Machine
 var condition: float = 1.0
 
 onready var conditionGrad = preload("res://gfx/machine-condition.tres") as Gradient
+export(String) var machineName: String = ""
 
 
 func _process(delta: float) -> void:
@@ -17,3 +18,8 @@ func _process(delta: float) -> void:
 func fix(amount: float) -> void:
 	condition += amount
 	condition = min(condition, 1.0)
+
+
+func suddenBreak() -> void:
+	condition -= rand_range(0.3, 1.0)
+	condition = max(condition, 0.0)

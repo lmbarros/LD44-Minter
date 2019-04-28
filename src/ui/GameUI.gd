@@ -34,3 +34,5 @@ func _on_OneTickPerSecondTimer_timeout() -> void:
 	gs.coinsPerSecStats.push_back(0)
 
 	$Panel/CoinsRate/Value.text = str(gs.coinsPerSec)
+
+	Globals.generateRandomEventMaybe($OneTickPerSecondTimer.wait_time)

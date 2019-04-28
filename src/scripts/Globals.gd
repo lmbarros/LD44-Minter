@@ -75,6 +75,25 @@ func getCurrentCoinRateModifier() -> int:
 	return modifier
 
 
+# This is called once per second, from GameUI (oh, my)
+func generateRandomEventMaybe(deltaInSecs: float) -> void:
+	gameState.secsOfGame += deltaInSecs
+	gameState.secsWithoutRandomEvents += deltaInSecs
+
+	if gameState.secsWithoutRandomEvents > 20.0:
+		var r = randf()
+		if r < 0.1:
+			# Time to generate a random event!
+			gameState.secsWithoutRandomEvents = 0.0
+			generateBrokenMachineEvent()
+
+
+func generateBrokenMachineEvent() -> void:
+	var machine = Globals.gameState.machines[randi() % 4] as Machine
+	machine.suddenBreak()
+	showToast("Your %s just had a failure!" % machine.machineName)
+
+
 onready var _toastFont = preload("res://fonts/toast-font.tres")
 func showToast(text: String) -> void:
 	var parent := gameScene.find_node("Toasts")
