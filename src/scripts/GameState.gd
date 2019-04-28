@@ -1,6 +1,9 @@
 extends Node
 class_name GameState
 
+# The score is the number of coins delivered
+var score: int = 0
+
 # Stocks, indexed by the Globals.MintageState
 var stocks: Array = [ 0, 0, 0, 0, 0 ]
 

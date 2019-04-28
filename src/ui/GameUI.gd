@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _process(delta: float) -> void:
+	$Panel/Score/Value.text = str(Globals.gameState.score)
 	$Panel/RawMetal/Count.text = str(Globals.gameState.stocks[Globals.MintageState.RAW_METAL])
 	$Panel/MoltenMetal/Count.text = str(Globals.gameState.stocks[Globals.MintageState.MOLTEN_METAL])
 	$Panel/WetPlanchets/Count.text = str(Globals.gameState.stocks[Globals.MintageState.WET_PLANCHET])

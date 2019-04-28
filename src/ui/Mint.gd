@@ -126,6 +126,7 @@ func _on_OutTimer_timeout():
 
 			# Make it count for the stats
 			Globals.updateStatsAfterCoinLeft()
+			Globals.gameState.score += 1
 
 			# Show it going away
 			var tweenDuration := 2.0

@@ -23,12 +23,12 @@
 [ext_resource path="res://gfx/coin.png" type="Texture" id=21]
 [ext_resource path="res://gfx/planchet.png" type="Texture" id=22]
 
-[sub_resource type="NavigationPolygon" id=2]
+[sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 980, 510, 590, 510, 610, 480, 629, 480, 940, 250, 940, 220, 960, 220, 960, 250, 960, 450, 960, 480, 939, 480, 939, 450, 60, 480, 570, 510, 40, 220, 20, 220, 20, 20, 320, 20, 320, 170, 350, 170, 350, 20, 650, 20, 650, 170, 680, 170, 680, 20, 980, 20, 980, 220, 680, 200, 680, 220, 650, 200, 650, 220, 350, 220, 350, 200, 320, 200, 60, 220, 320, 220, 60, 250, 40, 250, 320, 250, 320, 270, 350, 270, 350, 250, 650, 250, 650, 270, 649, 290, 629, 450, 680, 270, 680, 250, 980, 250, 980, 450, 679, 450, 679, 290, 649, 450, 980, 480, 610, 450, 350, 450, 350, 290, 320, 290, 320, 450, 60, 450, 590, 540, 980, 540, 980, 700, 550, 700, 550, 540, 570, 540, 500, 510, 500, 540, 520, 540, 520, 700, 20, 700, 20, 540, 480, 540, 480, 510, 20, 510, 40, 480, 20, 480, 40, 450, 20, 450, 20, 250 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 9, 10, 11, 4 ), PoolIntArray( 12, 2, 1, 13 ), PoolIntArray( 14, 15, 16, 17, 18 ), PoolIntArray( 19, 20, 21, 22 ), PoolIntArray( 23, 24, 25, 26, 6 ), PoolIntArray( 23, 6, 5, 27, 22 ), PoolIntArray( 5, 28, 27 ), PoolIntArray( 22, 27, 29, 19 ), PoolIntArray( 29, 30, 31, 32 ), PoolIntArray( 19, 29, 32, 18 ), PoolIntArray( 18, 32, 33 ), PoolIntArray( 14, 18, 33, 34 ), PoolIntArray( 33, 35, 34 ), PoolIntArray( 14, 34, 36, 37 ), PoolIntArray( 36, 38, 39 ), PoolIntArray( 40, 41, 42, 43, 44, 45 ), PoolIntArray( 46, 47, 4, 11 ), PoolIntArray( 7, 48, 49, 8 ), PoolIntArray( 4, 7, 8 ), PoolIntArray( 46, 11, 50, 51 ), PoolIntArray( 43, 46, 51, 44 ), PoolIntArray( 44, 52, 45 ), PoolIntArray( 9, 53, 0 ), PoolIntArray( 54, 55, 56 ), PoolIntArray( 57, 58, 59, 37, 36 ), PoolIntArray( 60, 61, 62, 63 ), PoolIntArray( 63, 64, 65 ), PoolIntArray( 60, 63, 65, 1 ), PoolIntArray( 1, 65, 13 ), PoolIntArray( 12, 13, 66 ), PoolIntArray( 67, 68, 69, 70 ), PoolIntArray( 70, 71, 72 ), PoolIntArray( 67, 70, 72 ), PoolIntArray( 66, 67, 72, 73 ), PoolIntArray( 12, 66, 73 ), PoolIntArray( 12, 73, 74, 75 ), PoolIntArray( 74, 76, 75 ), PoolIntArray( 59, 12, 75, 77 ), PoolIntArray( 77, 78, 79, 37 ), PoolIntArray( 59, 77, 37 ), PoolIntArray( 57, 36, 39 ), PoolIntArray( 57, 39, 40, 56 ), PoolIntArray( 56, 40, 45, 54 ), PoolIntArray( 54, 45, 3, 2 ), PoolIntArray( 0, 3, 10 ), PoolIntArray( 0, 10, 9 ) ]
 outlines = [ PoolVector2Array( 20, 20, 320, 20, 320, 170, 350, 170, 350, 20, 650, 20, 650, 170, 680, 170, 680, 20, 980, 20, 980, 220, 960, 220, 960, 250, 980, 250, 980, 450, 960, 450, 960, 480, 980, 480, 980, 510, 590, 510, 590, 540, 980, 540, 980, 700, 550, 700, 550, 540, 570, 540, 570, 510, 500, 510, 500, 540, 520, 540, 520, 700, 20, 700, 20, 540, 480, 540, 480, 510, 20, 510, 20, 480, 40, 480, 40, 450, 20, 450, 20, 250, 40, 250, 40, 220, 20, 220 ), PoolVector2Array( 320, 220, 60, 220, 60, 250, 320, 250, 320, 270, 350, 270, 350, 250, 650, 250, 650, 270, 680, 270, 680, 250, 940, 250, 940, 220, 680, 220, 680, 200, 650, 200, 650, 220, 350, 220, 350, 200, 320, 200 ), PoolVector2Array( 350, 290, 320, 290, 320, 450, 60, 450, 60, 480, 610, 480, 610, 450, 350, 450 ), PoolVector2Array( 939, 450, 679, 450, 679, 290, 649, 290, 649, 450, 629, 450, 629, 480, 939, 480 ) ]
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Timer
 
 # Declare member variables here. Examples:
@@ -69,7 +69,7 @@ __meta__ = {
 
 [node name="NavPoly1" type="NavigationPolygonInstance" parent="Nav/TileMap"]
 visible = false
-navpoly = SubResource( 2 )
+navpoly = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -83,7 +83,7 @@ __meta__ = {
 [node name="InTimer" type="Timer" parent="Courtyard"]
 wait_time = 0.6
 autostart = true
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="InPosition" type="Position2D" parent="Courtyard"]
 position = Vector2( 380, 181 )
@@ -381,80 +381,80 @@ position = Vector2( 60, 684.4 )
 position = Vector2( 170, 684.4 )
 
 [node name="Furnace01" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 110, 50 )
 
 [node name="Furnace02" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 50, 130 )
 
 [node name="Furnace03" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 100, 190 )
 
 [node name="Furnace04" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 190, 180 )
 
 [node name="Furnace05" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 250, 110 )
 
 [node name="Furnace06" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 300, 30 )
 
 [node name="Furnace07" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "FurnacePoints",
+"RoomPoints",
 ]]
 position = Vector2( 291.6, 200 )
 
 [node name="Courtyard01" type="Position2D" parent="NavPoints" groups=[
-"CourtyardPoints",
 "RoomPoints",
+"CourtyardPoints",
 ]]
 position = Vector2( 390, 60 )
 
 [node name="Courtyard02" type="Position2D" parent="NavPoints" groups=[
-"CourtyardPoints",
 "RoomPoints",
+"CourtyardPoints",
 ]]
 position = Vector2( 460, 100 )
 
 [node name="Courtyard03" type="Position2D" parent="NavPoints" groups=[
-"CourtyardPoints",
 "RoomPoints",
+"CourtyardPoints",
 ]]
 position = Vector2( 544, 80 )
 
 [node name="Courtyard04" type="Position2D" parent="NavPoints" groups=[
-"CourtyardPoints",
 "RoomPoints",
+"CourtyardPoints",
 ]]
 position = Vector2( 616, 100 )
 
 [node name="Courtyard05" type="Position2D" parent="NavPoints" groups=[
-"CourtyardPoints",
 "RoomPoints",
+"CourtyardPoints",
 ]]
 position = Vector2( 570, 150 )
 
 [node name="Courtyard06" type="Position2D" parent="NavPoints" groups=[
-"CourtyardPoints",
 "RoomPoints",
+"CourtyardPoints",
 ]]
 position = Vector2( 470, 190 )
 
@@ -579,44 +579,44 @@ position = Vector2( 680, 650 )
 position = Vector2( 576, 590 )
 
 [node name="Drying01" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 610, 410 )
 
 [node name="Drying02" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 600, 295 )
 
 [node name="Drying03" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 430, 270 )
 
 [node name="Drying04" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 430, 320 )
 
 [node name="Drying05" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 380, 400 )
 
 [node name="Drying06" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 490, 430 )
 
 [node name="Drying07" type="Position2D" parent="NavPoints" groups=[
-"RoomPoints",
 "DryingPoints",
+"RoomPoints",
 ]]
 position = Vector2( 500, 370 )
 
