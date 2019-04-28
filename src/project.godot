@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="LD44: Minter"
-run/main_scene="res://screens/GameScreen.tscn"
+run/main_scene="res://screens/TitleScreen.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 

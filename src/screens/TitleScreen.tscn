@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://screens/TitleScreen.gd" type="Script" id=1]
+[ext_resource path="res://gfx/title-background.png" type="Texture" id=2]
+[ext_resource path="res://fonts/title-text.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/title-text-bold.tres" type="DynamicFont" id=4]
+[ext_resource path="res://gfx/raw-metal.png" type="Texture" id=5]
+[ext_resource path="res://gfx/molten-metal.png" type="Texture" id=6]
+[ext_resource path="res://gfx/wet-planchet.png" type="Texture" id=7]
+[ext_resource path="res://gfx/planchet.png" type="Texture" id=8]
+[ext_resource path="res://gfx/coin.png" type="Texture" id=9]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label1" type="Label" parent="."]
+margin_left = 919.0
+margin_top = 643.0
+margin_right = 1241.0
+margin_bottom = 668.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "By Leandro Motta Barros, May 2019"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 919.0
+margin_top = 667.0
+margin_right = 1263.0
+margin_bottom = 692.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Ludum Dare 44 (\"Your life is currency\")"
+
+[node name="Label4" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 480.0
+margin_right = 530.0
+margin_bottom = 700.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You must keep the mint working. If your \"coins per second\" drops to zero, it's game over. Use tools to fix broken machinery and weapons to deal with undesired visitors.
+
+You can buy upgrades, but they will reduce your \"coins per seconds\" for some some time. You know, things cost money."
+autowrap = true
+
+[node name="Label5" type="Label" parent="."]
+margin_left = 1000.0
+margin_top = 110.0
+margin_right = 1241.0
+margin_bottom = 191.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Raw metal. In the furnace it is molten into....
+"
+autowrap = true
+
+[node name="Label7" type="Label" parent="."]
+margin_left = 1000.0
+margin_top = 196.0
+margin_right = 1250.0
+margin_bottom = 305.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Molten metal. In the molding room it is turned into....
+"
+autowrap = true
+
+[node name="Label8" type="Label" parent="."]
+margin_left = 1000.0
+margin_top = 312.0
+margin_right = 1250.0
+margin_bottom = 393.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Wet planchet. In the drying room it dries to become...
+"
+autowrap = true
+
+[node name="Label9" type="Label" parent="."]
+margin_left = 1000.0
+margin_top = 412.0
+margin_right = 1250.0
+margin_bottom = 493.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Planchet. The press finally turns it into...
+"
+autowrap = true
+
+[node name="Label10" type="Label" parent="."]
+margin_left = 1000.0
+margin_top = 498.0
+margin_right = 1250.0
+margin_bottom = 607.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Coin! Keep making those to fuel the economy and keep your job!
+"
+autowrap = true
+
+[node name="Label3" type="Label" parent="."]
+margin_left = 30.0
+margin_top = 450.0
+margin_right = 374.0
+margin_bottom = 475.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Instructions"
+
+[node name="Label6" type="Label" parent="."]
+margin_left = 100.0
+margin_top = 240.0
+margin_right = 870.0
+margin_bottom = 349.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "You have been working in the mint for decades. You love this place. You love this job.
+You are the minter.
+Your life is currency. 
+"
+autowrap = true
+
+[node name="Sprite1" type="Sprite" parent="."]
+position = Vector2( 960, 140 )
+texture = ExtResource( 5 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 960, 240 )
+texture = ExtResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 960, 340 )
+texture = ExtResource( 7 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 960, 440 )
+texture = ExtResource( 8 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 959, 540 )
+texture = ExtResource( 9 )
