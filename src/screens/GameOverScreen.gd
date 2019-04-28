@@ -3,7 +3,7 @@ extends Node2D
 var _canGo := false
 
 func _ready() -> void:
-	$ScoreLabel.text = "Your score is %s" % Globals.gameState.score
+	$ScoreLabel.text = "Your score was %s" % Globals.gameState.score
 	yield(get_tree().create_timer(2.0), "timeout")
 	_canGo = true
 
