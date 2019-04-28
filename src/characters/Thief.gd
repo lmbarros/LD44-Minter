@@ -1,6 +1,9 @@
 extends "res://characters/NPC.gd"
 
 
+var _numStolenCoins := 0
+
+
 func _ready() -> void:
 	add_to_group("Enemies")
 
@@ -8,8 +11,17 @@ func _ready() -> void:
 func _processAI(_deltaInSecs: float) -> void:
 	if !_doingSomething:
 		_doingSomething = true
+
+		# Leave if happy with the coins
+		var chanceToLeave := (_numStolenCoins - 3) / 10.0
+		if randf() < chanceToLeave:
+			var target = Globals.getPointInGroup("ThiefSpawnPoints")
+			moveToThenDo(target, "doLeave")
+			return
+
+		# Otherwise, keep thinking
 		var r := randf()
-		if r < 0.2:
+		if r < 0.1:
 			# Go to a random room and decide again
 			var target = Globals.getPointInGroup("RoomPoints")
 			moveToThenDo(target, "doNothing")
@@ -35,8 +47,9 @@ func doSteal(_arg) -> void:
 			m.get_parent().remove_child(m)
 			$StolenCoins.add_child(m)
 			Globals.gameState.stocks[Globals.MintageState.COIN] -= 1
+			_numStolenCoins += 1
 			break
-	yield(get_tree().create_timer(2.5), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	_doingSomething = false
 
 
@@ -45,11 +58,9 @@ func getCoinStock() -> int:
 
 
 func die() -> void:
-	print("stock before: ", getCoinStock())
 	var mintage := get_tree().get_nodes_in_group("Mintage")[0] as Node2D
 	for m in $StolenCoins.get_children():
 		m.get_parent().remove_child(m)
 		mintage.add_child(m)
 		Globals.gameState.stocks[Globals.MintageState.COIN] += 1
 	queue_free()
-	print("stock after: ", getCoinStock())
