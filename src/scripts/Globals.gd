@@ -102,7 +102,7 @@ func showToast(text: String) -> void:
 	label.align = Label.ALIGN_CENTER
 	label.add_font_override("font", _toastFont)
 	label.text = text
-	label.rect_position = Vector2(0, 780)
+	label.rect_position = Vector2(0, 720)
 	label.rect_size = Vector2(1000, 80)
 	parent.add_child(label)
 
