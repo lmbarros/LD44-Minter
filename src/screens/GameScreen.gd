@@ -6,3 +6,8 @@ func _init() -> void:
 
 func _ready() -> void:
 	Globals.gameScene = self
+	SoundManager.startMusic()
+
+
+func _exit_tree():
+	SoundManager.stopMusic()

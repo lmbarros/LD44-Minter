@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/short-of-money.ogg-00b5a5a5220a3615b0c2a1e94fff17d8.oggstr"
+
+[deps]
+
+source_file="res://sfx/short-of-money.ogg"
+dest_files=[ "res://.import/short-of-money.ogg-00b5a5a5220a3615b0c2a1e94fff17d8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

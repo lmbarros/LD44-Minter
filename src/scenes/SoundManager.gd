@@ -1,5 +1,13 @@
 extends Node2D
 
+func startMusic():
+	$Music.play()
+
+
+func stopMusic():
+	$Music.stop()
+
+
 func drill():
 	$Drill.play()
 

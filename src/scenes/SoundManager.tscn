@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/SoundManager.gd" type="Script" id=1]
 [ext_resource path="res://sfx/drill.wav" type="AudioStream" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://sfx/fix.wav" type="AudioStream" id=10]
 [ext_resource path="res://sfx/die.wav" type="AudioStream" id=11]
 [ext_resource path="res://sfx/visitor.wav" type="AudioStream" id=12]
+[ext_resource path="res://sfx/short-of-money.ogg" type="AudioStream" id=13]
 
 [node name="SoundManager" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,3 +49,7 @@ stream = ExtResource( 11 )
 
 [node name="Visitor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -20.0
