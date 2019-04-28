@@ -105,7 +105,7 @@ func _on_InTimer_timeout():
 	var m := Globals.makeMintage(Globals.MintageState.RAW_METAL, $Courtyard/InPosition.position)
 	var s := m.find_node("Sprite") as Sprite
 	s.modulate = Color(1.0, 1.0, 1.0, 0.0)
-	
+
 	var tweenDuration := 0.8
 	var t := m.find_node("MoveTween") as Tween
 	t.interpolate_property(s, "modulate", s.modulate, Color(1.0, 1.0, 1.0, 1.0),

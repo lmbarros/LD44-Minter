@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://characters/NPC.gd" type="Script" id=1]
+[ext_resource path="res://gfx/npc.png" type="Texture" id=2]
+
+[node name="NPC" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -6.78208, -14.2814, 0.342758, -14.2155, 6.34609, 0.825867, -1.17457, 14.2179, -7.24387, 14.2179 )
+
+[node name="PathLine" type="Line2D" parent="."]
+texture_mode = 3080292

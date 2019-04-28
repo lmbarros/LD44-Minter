@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://screens/GameScreen.gd" type="Script" id=1]
 [ext_resource path="res://ui/GameUI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/Mint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://characters/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://characters/Thief.tscn" type="PackedScene" id=5]
 
 [node name="GameScreen" type="Node2D"]
 script = ExtResource( 1 )
@@ -18,3 +19,9 @@ position = Vector2( 903.649, 592.06 )
 [node name="Toasts" type="Node2D" parent="."]
 
 [node name="Tween" type="Tween" parent="Toasts"]
+
+[node name="Thief" parent="." instance=ExtResource( 5 )]
+position = Vector2( 398.085, 47.4336 )
+rotation = 1.309
+collision_layer = 1
+collision_mask = 1
