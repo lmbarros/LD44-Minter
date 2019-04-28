@@ -19,6 +19,8 @@ const INITIAL_COINS_PER_SEC := 1
 
 var gameState: GameState = null
 var player: Player = null
+var gameScene: Node = null
+
 
 var helpText: String = ""
 
@@ -71,3 +73,26 @@ func getCurrentCoinRateModifier() -> int:
 	for m in gameState.coinRateModifiers:
 		modifier += m.amount
 	return modifier
+
+
+onready var _toastFont = preload("res://fonts/toast-font.tres")
+func showToast(text: String) -> void:
+	var parent := gameScene.find_node("Toasts")
+	var tween := parent.find_node("Tween")
+	var label := Label.new()
+	label.align = Label.ALIGN_CENTER
+	label.add_font_override("font", _toastFont)
+	label.text = text
+	label.rect_position = Vector2(0, 780)
+	label.rect_size = Vector2(1000, 80)
+	parent.add_child(label)
+
+	tween.interpolate_property(label, "rect_position", label.rect_position,
+		Vector2(0, 550), 5.0, Tween.TRANS_CUBIC, Tween.EASE_OUT)
+	tween.interpolate_property(label, "modulate", label.modulate,
+		Color(1.0, 1.0, 1.0, 0.0), 5.0, Tween.TRANS_QUAD, Tween.EASE_OUT)
+
+	tween.start()
+
+	yield(get_tree().create_timer(5.0), "timeout")
+	parent.remove_child(label)

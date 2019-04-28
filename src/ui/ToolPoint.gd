@@ -20,6 +20,7 @@ func _process(delta):
 		else:
 			# Buy (and equip) tool
 			createTool()
+			Globals.showToast("Bought a %s" % _tool.toolName)
 			Globals.addCoinRateModifier("Bought %s" % _tool.toolName, _tool.costTime, -_tool.costAmount)
 			_tool.isTaking = true
 			Globals.player.setTool(_tool)
