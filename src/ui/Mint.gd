@@ -31,6 +31,10 @@ func _ready() -> void:
 	addWetPlanchetToDrying(INITIAL_RESOURCE_COUNT)
 	addPlanchetToPress(INITIAL_RESOURCE_COUNT)
 	addCoinToOut(INITIAL_RESOURCE_COUNT)
+	
+	# Create the tools the player has by default
+	$Office/WrenchPoint.createTool()
+	$Office/HammerPoint.createTool()
 
 
 func addRawMetalToFurnace(count: int) -> void:

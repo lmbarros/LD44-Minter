@@ -9,6 +9,7 @@ const WORK_FOR_NEXT_STATE := 1.0
 
 
 var gameState: GameState = null
+var player: Player = null
 
 
 func _ready() -> void:
