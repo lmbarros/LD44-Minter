@@ -1,7 +1,5 @@
 extends Node2D
 
-const INITIAL_RESOURCE_COUNT := 10
-
 # Work done per second when the machine is in full condition (AKA mint condition, har! har! har!)
 const WORK_PER_SEC := 0.3
 
@@ -26,11 +24,11 @@ func _ready() -> void:
 	Globals.gameState.machines.append(null) # dummy for coins
 
 	# Add some stock
-	addRawMetalToFurnace(INITIAL_RESOURCE_COUNT)
-	addMoltenMetalToMolding(INITIAL_RESOURCE_COUNT)
-	addWetPlanchetToDrying(INITIAL_RESOURCE_COUNT)
-	addPlanchetToPress(INITIAL_RESOURCE_COUNT)
-	addCoinToOut(INITIAL_RESOURCE_COUNT)
+	addCoinToOut(Globals.COIN_RATE_STATS_SIZE)
+	addPlanchetToPress(1)
+	addWetPlanchetToDrying(1)
+	addMoltenMetalToMolding(1)
+	addRawMetalToFurnace(1)
 	
 	# Create the tools the player has by default
 	$Office/WrenchPoint.createTool()
@@ -40,40 +38,35 @@ func _ready() -> void:
 func addRawMetalToFurnace(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.RAW_METAL,
-			randomPointInside($FurnaceRoom/Depot),
-			getInitialWorkForNextState())
+			randomPointInside($FurnaceRoom/Depot))
 		$Mintage.add_child(m)
 
 
 func addMoltenMetalToMolding(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.MOLTEN_METAL,
-			randomPointInside($MoldingRoom/Depot),
-			getInitialWorkForNextState())
+			randomPointInside($MoldingRoom/Depot))
 		$Mintage.add_child(m)
 
 
 func addWetPlanchetToDrying(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.WET_PLANCHET,
-			randomPointInside($DryingRoom/Depot),
-			getInitialWorkForNextState())
+			randomPointInside($DryingRoom/Depot))
 		$Mintage.add_child(m)
 
 
 func addPlanchetToPress(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.PLANCHET,
-			randomPointInside($PressRoom/Depot),
-			getInitialWorkForNextState())
+			randomPointInside($PressRoom/Depot))
 		$Mintage.add_child(m)
 
 
 func addCoinToOut(count: int) -> void:
 	for i in range(count):
 		var m := Globals.makeMintage(Globals.MintageState.COIN,
-			randomPointInside($SafeRoom/Depot),
-			getInitialWorkForNextState())
+			randomPointInside($SafeRoom/Depot))
 		$Mintage.add_child(m)
 
 
@@ -125,6 +118,9 @@ func _on_OutTimer_timeout():
 			m.get_parent().remove_child(m)
 			add_child(m)
 			Globals.gameState.stocks[Globals.MintageState.COIN] -= 1
+
+			# Make it count for the stats
+			Globals.updateStatsAfterCoinLeft()
 
 			# Show it going away
 			var tweenDuration := 2.0
