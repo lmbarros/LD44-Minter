@@ -1,5 +1,9 @@
 extends KinematicBody2D
 
+# Are we doing something?
+var _doingSomething := false
+
+
 # The navigation node
 var _nav: Navigation2D
 
@@ -21,6 +25,8 @@ func _ready():
 
 
 func _process(delta: float) -> void:
+	_processAI(delta)
+
 	if _path.size() > 0:
 		if position.distance_squared_to(_path[0]) > ARRIVAL_DELTA:
 			# Moving
@@ -30,14 +36,13 @@ func _process(delta: float) -> void:
 		else:
 			# Arrived at waypoint
 			_path.remove(0)
-			
+
 			if _path.size() == 0:
 				# Arrived at destination
 				if _funcToDo != "":
 					self.call(_funcToDo, _funcToDoArg)
-				_funcToDo = ""
-				_funcToDoArg = null
-				
+
+
 	# debugPathLine()
 
 
@@ -54,3 +59,15 @@ func debugPathLine():
 	$PathLine.global_rotation = 0.0
 	for p in _path:
 		$PathLine.add_point(p - global_position)
+
+
+func _processAI(_deltaInSecs: float) -> void:
+	pass
+
+
+func doNothing(_arg) -> void:
+	_doingSomething = false
+
+
+func doLeave(_arg) -> void:
+	queue_free()

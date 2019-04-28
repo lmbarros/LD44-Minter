@@ -81,17 +81,29 @@ func generateRandomEventMaybe(deltaInSecs: float) -> void:
 	gameState.secsWithoutRandomEvents += deltaInSecs
 
 	if gameState.secsWithoutRandomEvents > 20.0:
-		var r = randf()
+		var r := randf()
 		if r < 0.1:
 			# Time to generate a random event!
 			gameState.secsWithoutRandomEvents = 0.0
-			generateBrokenMachineEvent()
+			r = randf()
+			if r < 0.5:
+				generateBrokenMachineEvent()
+			else:
+				generateThiefEvent()
 
 
 func generateBrokenMachineEvent() -> void:
 	var machine = Globals.gameState.machines[randi() % 4] as Machine
 	machine.suddenBreak()
 	showToast("Your %s just had a failure!" % machine.machineName)
+
+
+onready var ThiefScene := preload("res://characters/Thief.tscn")
+func generateThiefEvent() -> void:
+	var thief := ThiefScene.instance()
+	thief.position = getPointInGroup("ThiefSpawnPoints")
+	gameScene.add_child(thief)
+	showToast("A thief invaded the mint!")
 
 
 onready var _toastFont = preload("res://fonts/toast-font.tres")
@@ -115,3 +127,8 @@ func showToast(text: String) -> void:
 
 	yield(get_tree().create_timer(5.0), "timeout")
 	parent.remove_child(label)
+
+
+func getPointInGroup(group: String) -> Vector2:
+	var points := get_tree().get_nodes_in_group(group)
+	return points[randi() % points.size()].position
