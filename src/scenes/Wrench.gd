@@ -10,7 +10,7 @@ func _init():
 	costTime = 0.0
 	toolName = "Wrench"
 	descr = "The standard maintenance tool. Not very good, but it is unbreakable."
-	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 2.0
+	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 4.0
 
 
 func useImplementation() -> void:
