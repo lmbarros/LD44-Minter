@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://ui/Mint.gd" type="Script" id=1]
 [ext_resource path="res://ui/mint-tileset.tres" type="TileSet" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://scenes/Hammer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gfx/wrench.png" type="Texture" id=11]
 [ext_resource path="res://scenes/Wrench.tscn" type="PackedScene" id=12]
+[ext_resource path="res://gfx/coin.png" type="Texture" id=13]
+[ext_resource path="res://gfx/planchet.png" type="Texture" id=14]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Timer
@@ -206,6 +208,46 @@ custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Office"
 align = 1
+
+[node name="Reception" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="Reception"]
+margin_left = 20.0
+margin_top = 530.0
+margin_right = 520.0
+margin_bottom = 550.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Reception and Museum"
+align = 1
+
+[node name="OldCoin1" type="Sprite" parent="Reception"]
+position = Vector2( 252, 694 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="OldCoin2" type="Sprite" parent="Reception"]
+modulate = Color( 1, 0.67451, 0.67451, 1 )
+position = Vector2( 282, 694 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="OldCoin3" type="Sprite" parent="Reception"]
+position = Vector2( 312, 694 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="OldCoin4" type="Sprite" parent="Reception"]
+modulate = Color( 0.996078, 0.847059, 1, 1 )
+position = Vector2( 342, 694 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="OldCoin5" type="Sprite" parent="Reception"]
+modulate = Color( 0.682353, 0.682353, 0, 1 )
+position = Vector2( 372, 694 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
 
 [node name="Mintage" type="Node2D" parent="."]
 [connection signal="timeout" from="Courtyard/InTimer" to="." method="_on_InTimer_timeout"]
