@@ -29,10 +29,9 @@ func _ready() -> void:
 	addWetPlanchetToDrying(1)
 	addMoltenMetalToMolding(1)
 	addRawMetalToFurnace(1)
-	
+
 	# Create the tools the player has by default
 	$Office/WrenchPoint.createTool()
-	$Office/HammerPoint.createTool()
 
 
 func addRawMetalToFurnace(count: int) -> void:

@@ -20,6 +20,7 @@ const INITIAL_COINS_PER_SEC := 1
 var gameState: GameState = null
 var player: Player = null
 
+var helpText: String = ""
 
 func _ready() -> void:
 	randomize()
@@ -54,7 +55,7 @@ func addCoinRateModifier(descr: String, durationInSecs: float, amount: int) -> v
 
 func updateCoinRateModifiers(deltaInSecs: float) -> void:
 	var toRemove := [ ]
-	
+
 	var mods := gameState.coinRateModifiers
 	for i in mods.size():
 		mods[i].secsRemaining -= deltaInSecs

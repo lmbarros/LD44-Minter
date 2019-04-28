@@ -4,6 +4,10 @@ class_name Tool
 # Override those in subclasses!
 var coolDownInSecs := 0.0
 var chanceToBreak := 0.0
+var toolName := ""
+var descr := ""
+var costAmount := 0
+var costTime := 0.0
 
 var _coolDownTimer := 0.0
 

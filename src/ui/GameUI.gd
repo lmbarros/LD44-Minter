@@ -9,6 +9,8 @@ func _process(delta: float) -> void:
 	$Panel/Coins/Count.text = str(Globals.gameState.stocks[Globals.MintageState.COIN])
 
 	_updateCoinRateModifiers(delta)
+	
+	$HelpText.text = Globals.helpText
 
 
 func _updateCoinRateModifiers(delta: float) -> void:
