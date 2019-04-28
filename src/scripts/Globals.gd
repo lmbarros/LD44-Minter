@@ -126,7 +126,8 @@ func showToast(text: String) -> void:
 	tween.start()
 
 	yield(get_tree().create_timer(5.0), "timeout")
-	parent.remove_child(label)
+	if is_instance_valid(parent):
+		parent.remove_child(label)
 
 
 func getPointInGroup(group: String) -> Vector2:
