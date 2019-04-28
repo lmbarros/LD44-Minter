@@ -18,11 +18,6 @@ var _path: PoolVector2Array
 
 func _ready():
 	_nav = get_tree().get_nodes_in_group("Navigation")[0] as Navigation2D
-	moveToThenDo(Vector2(480, 400), "nothing")
-
-
-func nothing(_dummy) -> void:
-	Globals.showToast("Arrived!")
 
 
 func _process(delta: float) -> void:
@@ -43,7 +38,7 @@ func _process(delta: float) -> void:
 				_funcToDo = ""
 				_funcToDoArg = null
 				
-	debugPathLine()
+	# debugPathLine()
 
 
 # Goes to target, then calls funcToDo(funcToDoArg).
