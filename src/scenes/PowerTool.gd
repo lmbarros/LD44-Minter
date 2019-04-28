@@ -10,7 +10,7 @@ func _init():
 	costTime = 18.0
 	toolName = "Power Tool"
 	descr = "Fixes machinery as no other tool, but breaks easily."
-	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 8.0
+	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 8.5
 
 
 func useImplementation() -> void:
