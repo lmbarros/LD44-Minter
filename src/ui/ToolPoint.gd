@@ -51,5 +51,6 @@ func createTool() -> void:
 
 
 func destroyTool() -> void:
+	Globals.showToast("Your %s has broken!" % _tool.toolName)
 	_tool = null
 	self_modulate = Color(1.0, 1.0, 1.0, 0.25)
