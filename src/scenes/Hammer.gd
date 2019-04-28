@@ -14,6 +14,7 @@ func _init():
 
 
 func useImplementation() -> void:
+	SoundManager.hammer()
 	useToolToFix(fixPower)
 
 

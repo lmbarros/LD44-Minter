@@ -93,6 +93,7 @@ func generateRandomEventMaybe(deltaInSecs: float) -> void:
 
 
 func generateBrokenMachineEvent() -> void:
+	SoundManager.breaking()
 	var machine = Globals.gameState.machines[randi() % 4] as Machine
 	machine.suddenBreak()
 	showToast("Your %s just had a failure!" % machine.machineName)
@@ -100,6 +101,7 @@ func generateBrokenMachineEvent() -> void:
 
 onready var ThiefScene := preload("res://characters/Thief.tscn")
 func generateThiefEvent() -> void:
+	SoundManager.visitor()
 	var thief := ThiefScene.instance()
 	thief.position = getPointInGroup("ThiefSpawnPoints")
 	gameScene.add_child(thief)

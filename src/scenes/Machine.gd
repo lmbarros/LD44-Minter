@@ -16,10 +16,12 @@ func _process(delta: float) -> void:
 
 
 func fix(amount: float) -> void:
+	SoundManager.fix()
 	condition += amount
 	condition = min(condition, 1.0)
 
 
 func suddenBreak() -> void:
+	SoundManager.breaking()
 	condition -= rand_range(0.3, 1.0)
 	condition = max(condition, 0.0)

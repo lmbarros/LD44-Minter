@@ -17,6 +17,7 @@ func _process(delta):
 			# Equip tool
 			_tool.isTaking = true
 			Globals.player.setTool(_tool)
+			SoundManager.pickUp()
 		else:
 			# Buy (and equip) tool
 			createTool()
@@ -24,6 +25,7 @@ func _process(delta):
 			Globals.addCoinRateModifier("Bought %s" % _tool.toolName, _tool.costTime, -_tool.costAmount)
 			_tool.isTaking = true
 			Globals.player.setTool(_tool)
+			SoundManager.powerUp()
 
 
 func _on_Area2D_body_entered(body):

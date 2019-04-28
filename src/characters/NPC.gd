@@ -77,7 +77,9 @@ func doLeave(_arg) -> void:
 
 func receiveDamage(damage: float) -> void:
 	_health -= damage
+	SoundManager.hit()
 	if _health <= 0.0:
+		SoundManager.die()
 		die()
 
 

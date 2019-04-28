@@ -61,6 +61,7 @@ func useToolToFix(amount: float) -> void:
 
 # Assuming this is an attack tool
 func useToolToAttack(damage: float) -> void:
+	SoundManager.attack()
 	var enemy := getNearbyEnemy()
 	if enemy:
 		enemy.receiveDamage(damage)
