@@ -98,6 +98,11 @@ func getInitialWorkForNextState() -> float:
 
 
 func _on_InTimer_timeout():
+	# Don't add more raw materials if we have plenty already
+	if Globals.gameState.stocks[Globals.MintageState.RAW_METAL] >= 100:
+		return
+
+	# Stocks are not huge, add more!
 	var m := Globals.makeMintage(Globals.MintageState.RAW_METAL, $Courtyard/InPosition.position)
 	var s := m.find_node("Sprite") as Sprite
 	s.modulate = Color(1.0, 1.0, 1.0, 0.0)
