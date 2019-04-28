@@ -19,17 +19,16 @@ func _process(delta):
 			Globals.player.setTool(_tool)
 		else:
 			# Buy (and equip) tool
-			_tool = toolScene.instance()
+			createTool()
 			Globals.addCoinRateModifier("Bought %s" % _tool.toolName, _tool.costTime, -_tool.costAmount)
 			_tool.isTaking = true
 			Globals.player.setTool(_tool)
-			self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func _on_Area2D_body_entered(body):
 	if body is Player:
 		_isPlayerHere = true
-		
+
 	if _tool:
 		Globals.helpText = "%s: %s\n\nPress button to equip this!" % [_tool.toolName, _tool.descr]
 	else:
@@ -46,8 +45,10 @@ func _on_Area2D_body_exited(body):
 
 func createTool() -> void:
 	_tool = toolScene.instance()
+	_tool.toolPoint = self
 	self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 
 func destroyTool() -> void:
+	_tool = null
 	self_modulate = Color(1.0, 1.0, 1.0, 0.25)

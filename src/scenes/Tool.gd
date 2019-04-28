@@ -11,6 +11,9 @@ var costTime := 0.0
 
 var _coolDownTimer := 0.0
 
+# The tool point of this tool
+var toolPoint = null
+
 # True if player is taking it; hack to avoid using it when taking it
 var isTaking := false
 
@@ -29,6 +32,11 @@ func use() -> void:
 		_coolDownTimer = coolDownInSecs
 		$AnimationPlayer.play("use")
 		useImplementation()
+
+	# Did it break?
+	if randf() < chanceToBreak:
+		Globals.player.removeTool()
+		toolPoint.destroyTool()
 
 
 func canUse() -> bool:

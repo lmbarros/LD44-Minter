@@ -60,3 +60,9 @@ func noLongerTakingTool() -> void:
 
 func getTool() -> Node:
 	return null if $ToolSlot.get_child_count() == 0 else $ToolSlot.get_child(0)
+
+
+func removeTool() -> void:
+	var t := getTool()
+	if t:
+		$ToolSlot.remove_child(t)
