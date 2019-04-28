@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://ui/Mint.gd" type="Script" id=1]
 [ext_resource path="res://ui/mint-tileset.tres" type="TileSet" id=2]
@@ -22,7 +22,6 @@
 [ext_resource path="res://scenes/Sword.tscn" type="PackedScene" id=20]
 [ext_resource path="res://gfx/coin.png" type="Texture" id=21]
 [ext_resource path="res://gfx/planchet.png" type="Texture" id=22]
-[ext_resource path="res://characters/Thief.tscn" type="PackedScene" id=23]
 
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 980, 510, 590, 510, 610, 480, 629, 480, 940, 250, 940, 220, 960, 220, 960, 250, 960, 450, 960, 480, 939, 480, 939, 450, 60, 480, 570, 510, 40, 220, 20, 220, 20, 20, 320, 20, 320, 170, 350, 170, 350, 20, 650, 20, 650, 170, 680, 170, 680, 20, 980, 20, 980, 220, 680, 200, 680, 220, 650, 200, 650, 220, 350, 220, 350, 200, 320, 200, 60, 220, 320, 220, 60, 250, 40, 250, 320, 250, 320, 270, 350, 270, 350, 250, 650, 250, 650, 270, 649, 290, 629, 450, 680, 270, 680, 250, 980, 250, 980, 450, 679, 450, 679, 290, 649, 450, 980, 480, 610, 450, 350, 450, 350, 290, 320, 290, 320, 450, 60, 450, 590, 540, 980, 540, 980, 700, 550, 700, 550, 540, 570, 540, 500, 510, 500, 540, 520, 540, 520, 700, 20, 700, 20, 540, 480, 540, 480, 510, 20, 510, 40, 480, 20, 480, 40, 450, 20, 450, 20, 250 )
@@ -729,8 +728,5 @@ position = Vector2( 110, 620 )
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="Thief" parent="." instance=ExtResource( 23 )]
-position = Vector2( 420, 30 )
 [connection signal="timeout" from="Courtyard/InTimer" to="." method="_on_InTimer_timeout"]
 [connection signal="timeout" from="Courtyard/OutTimer" to="." method="_on_OutTimer_timeout"]

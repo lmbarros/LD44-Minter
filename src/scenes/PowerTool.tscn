@@ -39,5 +39,7 @@ script = ExtResource( 2 )
 anims/use = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="2"]
+position = Vector2( -1.06667, -1.46667 )
+rotation = 0.0290888
 texture = ExtResource( 3 )
 offset = Vector2( 20, 0 )
