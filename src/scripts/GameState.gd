@@ -15,6 +15,12 @@ var coinsPerSecStats: Array = [ ]
 # The current coin rate
 var coinsPerSec := 0
 
+# Can be bonuses or penalties. Dictionaries with these fields:
+#    descr: string
+#    secsRemaining: float
+#    amount: int
+var coinRateModifiers: Array = [ ]
+
 
 func _init():
 	for _i in range(Globals.COIN_RATE_STATS_SIZE):

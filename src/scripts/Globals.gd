@@ -32,7 +32,7 @@ func initGameState() -> void:
 func makeMintage(state: int, pos: Vector2) -> Node:
 	var m := MintageScene.instance()
 	m.state = state
-	Globals.gameState.stocks[state] += 1
+	gameState.stocks[state] += 1
 	m.updateSprite()
 	m.workForNextState = WORK_FOR_NEXT_STATE
 	m.position = pos
@@ -42,3 +42,31 @@ func makeMintage(state: int, pos: Vector2) -> Node:
 func updateStatsAfterCoinLeft() -> void:
 	for i in range(COIN_RATE_STATS_SIZE):
 		gameState.coinsPerSecStats[i] += 1
+
+
+func addCoinRateModifier(descr: String, durationInSecs: float, amount: int) -> void:
+	gameState.coinRateModifiers.append({
+		descr = descr,
+		secsRemaining = durationInSecs,
+		amount = amount,
+	})
+
+
+func updateCoinRateModifiers(deltaInSecs: float) -> void:
+	var toRemove := [ ]
+	
+	var mods := gameState.coinRateModifiers
+	for i in mods.size():
+		mods[i].secsRemaining -= deltaInSecs
+		if mods[i].secsRemaining <= 0:
+			toRemove.push_front(i) # reverse order, to make removal easier
+
+	for i in toRemove:
+		mods.remove(i)
+
+
+func getCurrentCoinRateModifier() -> int:
+	var modifier := 0
+	for m in gameState.coinRateModifiers:
+		modifier += m.amount
+	return modifier
