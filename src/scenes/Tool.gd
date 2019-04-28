@@ -17,6 +17,7 @@ var toolPoint = null
 # True if player is taking it; hack to avoid using it when taking it
 var isTaking := false
 
+var isUsing := false
 
 func _process(delta: float) -> void:
 	_coolDownTimer -= delta
@@ -29,9 +30,12 @@ func use() -> void:
 		return
 
 	if get_parent() and canUse():
+		isUsing = true
 		_coolDownTimer = coolDownInSecs
 		$AnimationPlayer.play("use")
 		useImplementation()
+		yield($AnimationPlayer, "animation_finished")
+		isUsing = false
 
 	# Did it break?
 	if randf() < chanceToBreak:

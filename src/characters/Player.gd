@@ -23,6 +23,12 @@ func _processAction(_delta: float) -> void:
 
 
 func _processWalk(_delta: float) -> void:
+	# Don't walk if using tool
+	var currTool := getTool()
+	if currTool and currTool.isUsing:
+		return
+
+	# No tool in use, OK to walk
 	var velocity := Vector2()
 
 	if Input.is_action_pressed("right"):
