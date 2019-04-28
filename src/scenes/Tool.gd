@@ -13,6 +13,8 @@ var isTaking := false
 
 func _process(delta: float) -> void:
 	_coolDownTimer -= delta
+	$TargetHighlight/Sprite.rotation += delta * 2 * PI
+	showTarget()
 
 
 func use() -> void:
@@ -44,6 +46,20 @@ func useToolToFix(amount: float) -> void:
 func getNearbyMachine() -> Machine:
 	var machines := get_tree().get_nodes_in_group("Machines")
 	for machine in machines:
-		if machine.position.distance_to(Globals.player.position) < 32:
+		if machine.position.distance_to(Globals.player.position) < 55:
 			return machine
 	return null
+
+
+# To be overriden by subclassses
+func showTarget() -> void:
+	assert(false)
+
+
+func showTargetForTool():
+	var machine := getNearbyMachine()
+	if machine == null:
+		$TargetHighlight.visible = false
+	else:
+		$TargetHighlight.visible = true
+		$TargetHighlight.global_position = machine.global_position

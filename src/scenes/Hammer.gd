@@ -11,3 +11,7 @@ func _ready():
 
 func useImplementation() -> void:
 	useToolToFix(fixPower)
+
+
+func showTarget():
+	showTargetForTool()
