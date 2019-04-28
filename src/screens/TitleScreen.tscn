@@ -46,9 +46,9 @@ margin_right = 530.0
 margin_bottom = 700.0
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "You must keep the mint working. If your \"coins per second\" drops to zero, it's game over. Use tools to fix broken machinery and weapons to deal with undesired visitors.
+text = "You must keep the mint working. If your \"coins per minute\" drops to zero, it's game over. Use tools to fix broken machinery and weapons to deal with undesired visitors.
 
-You can buy upgrades, but they will reduce your \"coins per seconds\" for some some time. You know, things cost money."
+You can buy upgrades, but they will reduce your \"coins per minute\" for some some time. You know, things cost money."
 autowrap = true
 
 [node name="Label5" type="Label" parent="."]
