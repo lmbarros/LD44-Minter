@@ -12,7 +12,7 @@ onready var conditionGrad = preload("res://gfx/machine-condition.tres") as Gradi
 func _process(delta: float) -> void:
 	condition -= delta * DECAY_RATE
 	condition = max(0.0, condition)
-	$ConditionLabel.text = str(condition).left(3)
+	$ConditionLabel.text = str(int(condition * 100)) + "%"
 	$ConditionLabel.add_color_override(
 		"font_color", conditionGrad.interpolate(condition))
 
