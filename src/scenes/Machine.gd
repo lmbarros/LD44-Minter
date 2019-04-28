@@ -15,3 +15,8 @@ func _process(delta: float) -> void:
 	$ConditionLabel.text = str(condition).left(3)
 	$ConditionLabel.add_color_override(
 		"font_color", conditionGrad.interpolate(condition))
+
+
+func fix(amount: float) -> void:
+	condition += amount
+	condition = min(condition, 1.0)

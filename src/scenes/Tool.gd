@@ -13,9 +13,10 @@ func _process(delta: float) -> void:
 
 
 func use() -> void:
-	_coolDownTimer = coolDownInSecs
-	$AnimationPlayer.play("use")
-	useImplementation()
+	if get_parent() and canUse():
+		_coolDownTimer = coolDownInSecs
+		$AnimationPlayer.play("use")
+		useImplementation()
 
 
 func canUse() -> bool:
@@ -25,3 +26,18 @@ func canUse() -> bool:
 # To be overriden in subclasses
 func useImplementation() -> void:
 	assert(false)
+
+
+# Assuming this is a fixing tool
+func useToolToFix(amount: float) -> void:
+	var machine := getNearbyMachine()
+	if machine:
+		machine.fix(amount)
+
+
+func getNearbyMachine() -> Machine:
+	var machines := get_tree().get_nodes_in_group("Machines")
+	for machine in machines:
+		if machine.position.distance_to(Globals.player.position) < 32:
+			return machine
+	return null

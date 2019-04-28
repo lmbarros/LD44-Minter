@@ -56,7 +56,9 @@ margin_right = 300.0
 margin_bottom = 140.0
 color = Color( 1, 1, 1, 0.364706 )
 
-[node name="Furnace" parent="FurnaceRoom" instance=ExtResource( 4 )]
+[node name="Furnace" parent="FurnaceRoom" groups=[
+"Machines",
+] instance=ExtResource( 4 )]
 position = Vector2( 50, 60 )
 
 [node name="Label" type="Label" parent="FurnaceRoom"]
@@ -88,7 +90,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Molding Room"
 align = 1
 
-[node name="MoldingMachine" parent="MoldingRoom" instance=ExtResource( 5 )]
+[node name="MoldingMachine" parent="MoldingRoom" groups=[
+"Machines",
+] instance=ExtResource( 5 )]
 position = Vector2( 200, 290 )
 
 [node name="DryingRoom" type="Node2D" parent="."]
@@ -110,7 +114,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Drying Room"
 align = 1
 
-[node name="DryingMachine" parent="DryingRoom" instance=ExtResource( 6 )]
+[node name="DryingMachine" parent="DryingRoom" groups=[
+"Machines",
+] instance=ExtResource( 6 )]
 position = Vector2( 500, 300 )
 
 [node name="PressRoom" type="Node2D" parent="."]
@@ -132,7 +138,9 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Press Room"
 align = 1
 
-[node name="Press" parent="PressRoom" instance=ExtResource( 7 )]
+[node name="Press" parent="PressRoom" groups=[
+"Machines",
+] instance=ExtResource( 7 )]
 position = Vector2( 770, 300 )
 
 [node name="SafeRoom" type="Node2D" parent="."]

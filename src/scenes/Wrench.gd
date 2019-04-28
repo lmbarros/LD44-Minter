@@ -1,5 +1,7 @@
 extends "res://scenes/Tool.gd"
 
+const FIX_POWER := 0.05
+
 
 func _ready():
 	coolDownInSecs = 10.0
@@ -7,4 +9,4 @@ func _ready():
 
 
 func useImplementation() -> void:
-	pass
+	useToolToFix(FIX_POWER)

@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 	_processAction(delta)
 
 
-func _processAction(delta: float) -> void:
+func _processAction(_delta: float) -> void:
 	if !Input.is_action_just_pressed("action"):
 		return
 
@@ -22,7 +22,7 @@ func _processAction(delta: float) -> void:
 		currTool.use()
 
 
-func _processWalk(delta: float) -> void:
+func _processWalk(_delta: float) -> void:
 	var velocity := Vector2()
 
 	if Input.is_action_pressed("right"):
@@ -47,7 +47,7 @@ func setTool(newTool: Tool) -> void:
 	var currTool := getTool()
 	if currTool:
 		$ToolSlot.remove_child(currTool)
-	
+
 	$ToolSlot.add_child(newTool)
 
 
