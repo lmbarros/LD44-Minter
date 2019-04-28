@@ -1,12 +1,11 @@
 extends "res://scenes/Tool.gd"
 
-const FIX_POWER := 0.05
-
+var fixPower := 0.0
 
 func _ready():
-	coolDownInSecs = 10.0
+	coolDownInSecs = 5.0
 	chanceToBreak = 0.0
-
+	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 1.5
 
 func useImplementation() -> void:
-	useToolToFix(FIX_POWER)
+	useToolToFix(fixPower)
