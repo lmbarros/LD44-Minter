@@ -9,7 +9,7 @@ func _init():
 	costAmount = 0
 	costTime = 0.0
 	toolName = "Dagger"
-	descr = "Weak and faithful. Never breaks, but is a weak weapon"
+	descr = "An old dagger. Never breaks, but doesn't damage much more than a mosquito bite."
 
 
 func useImplementation() -> void:

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/Tool.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/PowerTool.gd" type="Script" id=2]
+[ext_resource path="res://gfx/power-tool.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "use"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 4, -3 ), Vector2( -1, 2 ), Vector2( -2.6, -1.2 ), Vector2( 2, -2 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, -3.0, 4.0, -3.0, 0.0 ]
+}
+
+[node name="PowerTool" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" parent="." index="0"]
+anims/use = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+offset = Vector2( 20, 0 )

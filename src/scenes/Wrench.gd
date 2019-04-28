@@ -4,7 +4,7 @@ var fixPower := 0.0
 
 
 func _init():
-	coolDownInSecs = 5.0
+	coolDownInSecs = 3.0
 	chanceToBreak = 0.0
 	costAmount = 0
 	costTime = 0.0
