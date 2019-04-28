@@ -58,6 +58,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://scripts/Globals.gd"
+SoundManager="*res://scenes/SoundManager.tscn"
 
 [display]
 
