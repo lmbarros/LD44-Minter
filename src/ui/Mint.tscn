@@ -50,7 +50,6 @@ script = ExtResource( 1 )
 [node name="Nav" type="Navigation2D" parent="." groups=[
 "Navigation",
 ]]
-editor/display_folded = true
 position = Vector2( 0, 1 )
 __meta__ = {
 "_edit_lock_": true
@@ -75,13 +74,12 @@ __meta__ = {
 }
 
 [node name="Courtyard" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="InTimer" type="Timer" parent="Courtyard"]
-wait_time = 0.6
+wait_time = 0.3
 autostart = true
 script = SubResource( 2 )
 
@@ -245,6 +243,7 @@ text = "Safe"
 align = 1
 
 [node name="Office" type="Node2D" parent="."]
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -579,80 +578,80 @@ position = Vector2( 680, 650 )
 position = Vector2( 576, 590 )
 
 [node name="Drying01" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 610, 410 )
 
 [node name="Drying02" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 600, 295 )
 
 [node name="Drying03" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 430, 270 )
 
 [node name="Drying04" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 430, 320 )
 
 [node name="Drying05" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 380, 400 )
 
 [node name="Drying06" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 490, 430 )
 
 [node name="Drying07" type="Position2D" parent="NavPoints" groups=[
-"DryingPoints",
 "RoomPoints",
+"DryingPoints",
 ]]
 position = Vector2( 500, 370 )
 
 [node name="Molding01" type="Position2D" parent="NavPoints" groups=[
-"MoldingPoints",
 "RoomPoints",
+"MoldingPoints",
 ]]
 position = Vector2( 270, 280 )
 
 [node name="Molding02" type="Position2D" parent="NavPoints" groups=[
-"MoldingPoints",
 "RoomPoints",
+"MoldingPoints",
 ]]
 position = Vector2( 120, 279 )
 
 [node name="Molding03" type="Position2D" parent="NavPoints" groups=[
-"MoldingPoints",
 "RoomPoints",
+"MoldingPoints",
 ]]
 position = Vector2( 160, 330 )
 
 [node name="Molding04" type="Position2D" parent="NavPoints" groups=[
-"MoldingPoints",
 "RoomPoints",
+"MoldingPoints",
 ]]
 position = Vector2( 230, 370 )
 
 [node name="Molding05" type="Position2D" parent="NavPoints" groups=[
-"MoldingPoints",
 "RoomPoints",
+"MoldingPoints",
 ]]
 position = Vector2( 60, 400 )
 
 [node name="Molding06" type="Position2D" parent="NavPoints" groups=[
-"MoldingPoints",
 "RoomPoints",
+"MoldingPoints",
 ]]
 position = Vector2( 40, 270 )
 

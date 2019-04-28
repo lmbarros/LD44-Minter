@@ -10,7 +10,7 @@ func _init():
 	costTime = 15.0
 	toolName = "Hammer"
 	descr = "All your problems look like nails anyway. A bit better than a wrench, doesn't break easily."
-	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 2.5
+	fixPower = Globals.MACHINE_DECAY_RATE * coolDownInSecs * 3.5
 
 
 func useImplementation() -> void:
