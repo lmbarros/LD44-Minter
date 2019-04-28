@@ -1,6 +1,10 @@
 extends "res://characters/NPC.gd"
 
 
+func _ready() -> void:
+	add_to_group("Enemies")
+
+
 func _processAI(_deltaInSecs: float) -> void:
 	if !_doingSomething:
 		_doingSomething = true
@@ -38,3 +42,14 @@ func doSteal(_arg) -> void:
 
 func getCoinStock() -> int:
 	return Globals.gameState.stocks[Globals.MintageState.COIN]
+
+
+func die() -> void:
+	print("stock before: ", getCoinStock())
+	var mintage := get_tree().get_nodes_in_group("Mintage")[0] as Node2D
+	for m in $StolenCoins.get_children():
+		m.get_parent().remove_child(m)
+		mintage.add_child(m)
+		Globals.gameState.stocks[Globals.MintageState.COIN] += 1
+	queue_free()
+	print("stock after: ", getCoinStock())

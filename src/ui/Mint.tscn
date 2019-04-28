@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://ui/Mint.gd" type="Script" id=1]
 [ext_resource path="res://ui/mint-tileset.tres" type="TileSet" id=2]
@@ -12,9 +12,11 @@
 [ext_resource path="res://scenes/Hammer.tscn" type="PackedScene" id=10]
 [ext_resource path="res://gfx/wrench.png" type="Texture" id=11]
 [ext_resource path="res://scenes/Wrench.tscn" type="PackedScene" id=12]
-[ext_resource path="res://gfx/coin.png" type="Texture" id=13]
-[ext_resource path="res://gfx/planchet.png" type="Texture" id=14]
-[ext_resource path="res://characters/Thief.tscn" type="PackedScene" id=15]
+[ext_resource path="res://gfx/dagger.png" type="Texture" id=13]
+[ext_resource path="res://scenes/Dagger.tscn" type="PackedScene" id=14]
+[ext_resource path="res://gfx/coin.png" type="Texture" id=15]
+[ext_resource path="res://gfx/planchet.png" type="Texture" id=16]
+[ext_resource path="res://characters/Thief.tscn" type="PackedScene" id=17]
 
 [sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 980, 510, 590, 510, 610, 480, 629, 480, 940, 250, 940, 220, 960, 220, 960, 250, 960, 450, 960, 480, 939, 480, 939, 450, 60, 480, 570, 510, 40, 220, 20, 220, 20, 20, 320, 20, 320, 170, 350, 170, 350, 20, 650, 20, 650, 170, 680, 170, 680, 20, 980, 20, 980, 220, 680, 200, 680, 220, 650, 200, 650, 220, 350, 220, 350, 200, 320, 200, 60, 220, 320, 220, 60, 250, 40, 250, 320, 250, 320, 270, 350, 270, 350, 250, 650, 250, 650, 270, 649, 290, 629, 450, 680, 270, 680, 250, 980, 250, 980, 450, 679, 450, 679, 290, 649, 450, 980, 480, 610, 450, 350, 450, 350, 290, 320, 290, 320, 450, 60, 450, 590, 540, 980, 540, 980, 700, 550, 700, 550, 540, 570, 540, 500, 510, 500, 540, 520, 540, 520, 700, 20, 700, 20, 540, 480, 540, 480, 510, 20, 510, 40, 480, 20, 480, 40, 450, 20, 450, 20, 250 )
@@ -238,7 +240,6 @@ text = "Safe"
 align = 1
 
 [node name="Office" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -252,6 +253,11 @@ toolScene = ExtResource( 10 )
 position = Vector2( 640, 690 )
 texture = ExtResource( 11 )
 toolScene = ExtResource( 12 )
+
+[node name="DaggerPoint" parent="Office" instance=ExtResource( 8 )]
+position = Vector2( 740, 690 )
+texture = ExtResource( 13 )
+toolScene = ExtResource( 14 )
 
 [node name="Label" type="Label" parent="Office"]
 margin_left = 540.0
@@ -282,30 +288,30 @@ align = 1
 [node name="OldCoin1" type="Sprite" parent="Reception"]
 position = Vector2( 252, 686 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
 [node name="OldCoin2" type="Sprite" parent="Reception"]
 modulate = Color( 1, 0.67451, 0.67451, 1 )
 position = Vector2( 282, 686 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
 [node name="OldCoin3" type="Sprite" parent="Reception"]
 position = Vector2( 312, 686 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="OldCoin4" type="Sprite" parent="Reception"]
 modulate = Color( 0.996078, 0.847059, 1, 1 )
 position = Vector2( 342, 686 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 13 )
+texture = ExtResource( 15 )
 
 [node name="OldCoin5" type="Sprite" parent="Reception"]
 modulate = Color( 0.682353, 0.682353, 0, 1 )
 position = Vector2( 372, 686 )
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 14 )
+texture = ExtResource( 16 )
 
 [node name="NavPoints" type="Node2D" parent="."]
 editor/display_folded = true
@@ -703,7 +709,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Thief" parent="." instance=ExtResource( 15 )]
+[node name="Thief" parent="." instance=ExtResource( 17 )]
 position = Vector2( 420, 30 )
 [connection signal="timeout" from="Courtyard/InTimer" to="." method="_on_InTimer_timeout"]
 [connection signal="timeout" from="Courtyard/OutTimer" to="." method="_on_OutTimer_timeout"]

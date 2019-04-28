@@ -32,6 +32,7 @@ func _ready() -> void:
 
 	# Create the tools the player has by default
 	$Office/WrenchPoint.createTool()
+	$Office/DaggerPoint.createTool()
 
 
 func addRawMetalToFurnace(count: int) -> void:

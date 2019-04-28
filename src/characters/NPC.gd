@@ -1,8 +1,10 @@
 extends KinematicBody2D
+class_name NPC
 
 # Are we doing something?
 var _doingSomething := false
 
+var _health := 1.0
 
 # The navigation node
 var _nav: Navigation2D
@@ -71,3 +73,14 @@ func doNothing(_arg) -> void:
 
 func doLeave(_arg) -> void:
 	queue_free()
+
+
+func receiveDamage(damage: float) -> void:
+	_health -= damage
+	if _health <= 0.0:
+		die()
+
+
+# Override in subclasses!
+func die() -> void:
+	assert(false)
