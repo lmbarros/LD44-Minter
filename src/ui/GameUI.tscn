@@ -26,113 +26,42 @@ text = "Score:"
 align = 2
 
 [node name="Value" type="Label" parent="Panel/Score"]
-margin_left = 145.0
-margin_right = 235.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-
-[node name="RawMetal" type="Label" parent="Panel"]
-margin_left = 2.0
-margin_top = 32.0
-margin_right = 142.0
-margin_bottom = 52.0
-custom_fonts/font = ExtResource( 2 )
-text = "Raw metal:"
-align = 2
-
-[node name="Count" type="Label" parent="Panel/RawMetal"]
-margin_left = 145.0
-margin_right = 235.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-
-[node name="MoltenMetal" type="Label" parent="Panel"]
-margin_left = 2.0
-margin_top = 53.0
-margin_right = 142.0
-margin_bottom = 73.0
-custom_fonts/font = ExtResource( 2 )
-text = "Molten metal:"
-align = 2
-
-[node name="Count" type="Label" parent="Panel/MoltenMetal"]
-margin_left = 145.0
-margin_right = 235.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-
-[node name="WetPlanchets" type="Label" parent="Panel"]
-margin_left = 2.0
-margin_top = 73.0
-margin_right = 142.0
-margin_bottom = 93.0
-custom_fonts/font = ExtResource( 2 )
-text = "Wet planchets:"
-align = 2
-
-[node name="Count" type="Label" parent="Panel/WetPlanchets"]
-margin_left = 145.0
-margin_right = 235.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-
-[node name="Planchets" type="Label" parent="Panel"]
-margin_left = 2.0
-margin_top = 94.0
-margin_right = 142.0
-margin_bottom = 114.0
-custom_fonts/font = ExtResource( 2 )
-text = "Planchets:"
-align = 2
-
-[node name="Count" type="Label" parent="Panel/Planchets"]
-margin_left = 145.0
-margin_right = 235.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 3 )
-text = "0"
-
-[node name="Coins" type="Label" parent="Panel"]
-margin_left = 2.0
-margin_top = 115.0
-margin_right = 142.0
-margin_bottom = 135.0
-custom_fonts/font = ExtResource( 2 )
-text = "Coins:"
-align = 2
-
-[node name="Count" type="Label" parent="Panel/Coins"]
-margin_left = 145.0
-margin_right = 235.0
+margin_left = 148.0
+margin_right = 264.0
 margin_bottom = 20.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
 [node name="CoinsRate" type="Label" parent="Panel"]
 margin_left = 2.0
-margin_top = 155.0
+margin_top = 38.0
 margin_right = 142.0
-margin_bottom = 175.0
+margin_bottom = 58.0
 custom_fonts/font = ExtResource( 2 )
 text = "Coins per second:"
 align = 2
 
 [node name="Value" type="Label" parent="Panel/CoinsRate"]
-margin_left = 145.0
-margin_right = 235.0
-margin_bottom = 20.0
+margin_left = 149.0
+margin_top = 12.0
+margin_right = 239.0
+margin_bottom = 32.0
 custom_fonts/font = ExtResource( 3 )
 text = "0"
 
+[node name="AKALife" type="Label" parent="Panel/CoinsRate"]
+margin_top = 19.0
+margin_right = 140.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 2 )
+text = "(AKA life)"
+align = 2
+
 [node name="CoinRateModifiers" type="Label" parent="Panel"]
 margin_left = 13.0
-margin_top = 194.0
+margin_top = 95.0
 margin_right = 160.0
-margin_bottom = 214.0
+margin_bottom = 115.0
 custom_fonts/font = ExtResource( 2 )
 text = "Coin rate modifiers:"
 
@@ -140,14 +69,14 @@ text = "Coin rate modifiers:"
 margin_left = 1.0
 margin_top = 22.0
 margin_right = 249.0
-margin_bottom = 200.0
+margin_bottom = 240.0
 custom_fonts/font = ExtResource( 3 )
 clip_text = true
 
 [node name="HelpText" type="Label" parent="."]
-margin_left = 1017.0
-margin_top = 304.0
-margin_right = 1265.0
+margin_left = 1016.0
+margin_top = 270.0
+margin_right = 1264.0
 margin_bottom = 704.0
 custom_fonts/font = ExtResource( 4 )
 align = 1
