@@ -81,8 +81,12 @@ func receiveDamage(damage: float) -> void:
 	if _health <= 0.0:
 		SoundManager.die()
 		die()
-
+	_receiveDamage()
 
 # Override in subclasses!
 func die() -> void:
 	assert(false)
+
+# Overridable
+func _receiveDamage():
+	pass

@@ -103,8 +103,10 @@ func generateRandomEventMaybe(deltaInSecs: float) -> void:
 			# Time to generate a random event!
 			gameState.secsWithoutRandomEvents = 0.0
 			r = randf()
-			if r < 0.5:
+			if r < 0.25:
 				generateBrokenMachineEvent()
+			elif r < 0.7:
+				generateVisitorEvent()
 			else:
 				generateThiefEvent()
 
@@ -123,6 +125,15 @@ func generateThiefEvent() -> void:
 	thief.position = getPointInGroup("ThiefSpawnPoints")
 	gameScene.add_child(thief)
 	showToast("A thief invaded the mint!")
+
+
+onready var VisitorScene := preload("res://characters/Visitor.tscn")
+func generateVisitorEvent() -> void:
+	SoundManager.visitor()
+	var visitor := VisitorScene.instance()
+	visitor.position = getPointInGroup("VisitorSpawnPoints")
+	gameScene.add_child(visitor)
+	showToast("A visitor arrived. Let's hope he doesn't cause any trouble!")
 
 
 onready var _toastFont = preload("res://fonts/toast-font.tres")

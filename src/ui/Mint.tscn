@@ -333,7 +333,6 @@ scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 22 )
 
 [node name="NavPoints" type="Node2D" parent="."]
-editor/display_folded = true
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -720,6 +719,21 @@ position = Vector2( 230, 600 )
 "RoomPoints",
 ]]
 position = Vector2( 110, 620 )
+
+[node name="Visitor01" type="Position2D" parent="NavPoints" groups=[
+"VisitorSpawnPoints",
+]]
+position = Vector2( 85, 683 )
+
+[node name="Visitor02" type="Position2D" parent="NavPoints" groups=[
+"VisitorSpawnPoints",
+]]
+position = Vector2( 115, 683 )
+
+[node name="Visitor03" type="Position2D" parent="NavPoints" groups=[
+"VisitorSpawnPoints",
+]]
+position = Vector2( 145, 683 )
 
 [node name="Mintage" type="Node2D" parent="." groups=[
 "Mintage",
