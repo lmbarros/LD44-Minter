@@ -10,6 +10,7 @@ func _processAI(_deltaInSecs: float) -> void:
 		_doingSomething = true
 
 		# Decide
+		yield(get_tree().create_timer(1.5), "timeout")
 		var r := randf()
 		if r < 0.2:
 			# Bored, leave
