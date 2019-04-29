@@ -21,7 +21,9 @@ func fix(amount: float) -> void:
 	condition = min(condition, 1.0)
 
 
+onready var SmokeFX := preload("res://gfx/SmokeFX.tscn")
 func suddenBreak() -> void:
 	SoundManager.breaking()
 	condition -= rand_range(0.3, 1.0)
 	condition = max(condition, 0.0)
+	add_child(SmokeFX.instance())
